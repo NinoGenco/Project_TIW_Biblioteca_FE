@@ -1,0 +1,20 @@
+<h2>AGGIUNGI IL TUO LIBRO</h2>
+<label>Titolo</label><br>
+<input type="text" [(ngModel)]="titolo"><br>
+<label>Autore</label><br>
+<input type="text" [(ngModel)]="autore"><br><br>
+<label>Anno di pubblicazione</label><br>
+<input type="number" [(ngModel)]="anno"><br>
+<label>Descrizione</label><br>
+<input type="text" [(ngModel)]="descrizione"><br><br>
+<label>Genere</label><br>
+<select [(ngModel)]="genereSelected">
+  <option value="" selected></option>
+  <ng-container *ngFor="let genere of generi">
+    <option [value]="genere.nome">{{genere.nome}}</option>
+  </ng-container>
+</select><br><br>
+<label>Autocompila tramite ISBN</label>:
+<input type="text" [(ngModel)]="isbn"><button style="margin-left: 10px" (click)="cercaConIsbn()">Cerca</button><br><br>
+<button (click)="aggiungi()">Aggiungi </button>
+<button  style="margin-left: 10px" (click)="goToHomepage()">Torna alla homepage</button>

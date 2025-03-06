@@ -1,0 +1,31 @@
+<h2>RICERCA LIBRI</h2>
+<label>Cerca per titolo: </label>
+<input type="text" [(ngModel)]="ricercaTitolo">
+<br><br>
+<label>Cerca per autore: </label>
+<input type="text" [(ngModel)]="ricercaAutore">
+<br><br>
+<label>Cerca per genere: </label>
+<select [(ngModel)]="ricercaGenere">
+  <option value="" selected></option>
+  <ng-container *ngFor="let genere of generi">
+    <option [value]="genere.nome">{{genere.nome}}</option>
+  </ng-container>
+</select>
+<br><br>
+<button (click)="resetFiltri()">Reset filtri</button>
+<br><br>
+<ng-container *ngFor="let libro of libri">
+  <ng-container *ngIf="(ricercaGenere === '' || ricercaGenere === libro.genere) &&
+      (ricercaTitolo === '' || libro.titolo.toLowerCase().includes(ricercaTitolo.toLowerCase().trim())) &&
+      (ricercaAutore === '' || libro.autore.toLowerCase().includes(ricercaAutore.toLowerCase().trim()))">
+    <p>
+      <strong>{{libro.titolo}}</strong> - {{libro.autore}}
+      <ng-container>
+        <button (click)="goToRichiedi(libro.libroId)">Richiedi</button>
+      </ng-container>
+    </p>
+  </ng-container>
+</ng-container>
+<br>
+<button (click)="goToHomepage()">Torna alla homepage</button>

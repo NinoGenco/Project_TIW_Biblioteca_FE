@@ -1,0 +1,23 @@
+<label>È un prestito?</label>
+<input type="radio" name="isPrestito" [(ngModel)]="isPrestito" [value]="true">Sì
+<input type="radio" name="isPrestito" [(ngModel)]="isPrestito" [value]="false">No
+<br><br>
+<ng-container *ngIf="!isPrestito">
+  <label>Con quale libro vuoi scambiarlo?</label><br>
+  <select [(ngModel)]="libroIdSelezionato">
+    <option value="" selected></option>
+    <ng-container *ngFor="let libro of libri">
+      <option [value]="libro.libroId">{{libro.titolo}} - {{libro.autore}}</option>
+    </ng-container>
+  </select>
+  <br>
+</ng-container>
+<div style="margin-top: 20px">
+  <label>Specifica il modo in cui avverrà lo scambio</label><br>
+  <textarea [(ngModel)]="modalita"></textarea>
+</div>
+<div style="margin-top: 20px">
+  <button (click)="isPrestito ? richiediInPrestito() : richiediPerScambio()">Richiedi</button>
+</div>
+<br><br>
+<button (click)="goToHomepage()">Torna alla homepage</button>

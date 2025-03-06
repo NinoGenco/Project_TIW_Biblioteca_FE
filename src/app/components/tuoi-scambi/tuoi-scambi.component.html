@@ -1,0 +1,18 @@
+<h2>SCAMBIO LIBRI</h2>
+<label>Cerca per titolo: </label>
+<input type="text" [(ngModel)]="ricercaTitolo">
+<br><br>
+<label>Cerca per autore: </label>
+<input type="text" [(ngModel)]="ricercaAutore">
+<br><br>
+<button (click)="resetFiltri()">Reset filtri</button>
+<br><br><br>
+<ng-container *ngFor="let offerta of offerte">
+  <ng-container *ngIf="
+      (ricercaTitolo === '' || offerta.titoloLibro.toLowerCase().includes(ricercaTitolo.toLowerCase().trim())) &&
+      (ricercaAutore === '' || offerta.autoreLibro.toLowerCase().includes(ricercaAutore.toLowerCase().trim()))">
+    <p><strong>{{offerta.titoloLibro}}</strong> - {{offerta.autoreLibro}}</p>
+  </ng-container>
+</ng-container>
+<br><br>
+<button (click)="goToHomepage()">Torna alla homepage</button>

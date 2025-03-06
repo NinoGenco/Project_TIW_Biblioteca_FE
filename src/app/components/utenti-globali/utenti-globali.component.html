@@ -1,0 +1,6 @@
+<h2>UTENTI</h2>
+<ng-container *ngFor="let utente of utenti">
+  <p>{{utente.username}} <button (click)="goToChat(utente.username)">Messaggia</button></p>
+</ng-container>
+<br>
+<button (click)="goToHomepage()">Torna alla homepage</button>

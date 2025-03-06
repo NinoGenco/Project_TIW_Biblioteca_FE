@@ -1,0 +1,19 @@
+<ng-container *ngIf="giaRecensito()">
+  <p>Hai già recensito questo scambio!</p>
+</ng-container>
+<ng-container *ngIf="!giaRecensito()">
+  <p>Lascia una recensione</p>
+  <textarea [(ngModel)]="testo"></textarea><br>
+  <input type="number" [(ngModel)]="voto" min="1" max="5"><br><br>
+  <button (click)="inviaRecensione()">Invia</button>
+  <br>
+  <button (click)="reset()">Reset</button>
+  <br><br>
+</ng-container>
+<ng-container *ngIf="recensioni.length">
+  <p>Recensioni per questo scambio</p>
+</ng-container>
+<ng-container *ngFor="let recensione of recensioni">
+  <p>{{recensione.testo}} - Voto: {{recensione.voto}} - Username: {{recensione.usernameUtente}}</p>
+</ng-container>
+<button (click)="goToHomepage()">Torna alla homepage</button>

@@ -1,0 +1,9 @@
+<h2>Chat con {{username}}</h2>
+<ng-container *ngFor="let messaggio of messaggi">
+  <p>{{messaggio.dataInvio}} <strong>{{messaggio.usernameMittente}}:</strong> {{messaggio.testo}}</p>
+</ng-container>
+<textarea placeholder="Scrivi un messaggio" [(ngModel)]="messaggio" cols="50" rows="4"></textarea>
+<button style="margin-left: 10px" (click)="inviaMessaggio()">Invia</button>
+<button style="margin-left: 10px" (click)="goToHomepage()">Torna alla homepage</button>
+
+

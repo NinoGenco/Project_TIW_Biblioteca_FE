@@ -1,0 +1,16 @@
+<h2>REGISTRAZIONE</h2>
+<label>Username</label><br>
+<input type="text" [(ngModel)]="username"><br>
+<label>Nome</label><br>
+<input type="text" [(ngModel)]="nome"><br><br>
+<label>Email</label><br>
+<input type="email" [(ngModel)]="email"><br>
+<label>Telefono</label><br>
+<input type="text" [(ngModel)]="telefono"><br><br>
+<label>Comunità</label><br>
+<input type="text" [(ngModel)]="comunita"><br><br>
+<label>Password</label><br>
+<input type="password" [(ngModel)]="password"><br><br>
+<button (click)="register()">Registrati</button><br>
+<p>Hai già un account? <button (click)="goToLogin()">Accedi!</button></p>
+

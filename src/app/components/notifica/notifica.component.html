@@ -1,0 +1,5 @@
+<h2>NOTIFICHE</h2>
+<ng-container *ngFor="let notifica of notifiche">
+<p>{{notifica.data}} - {{notifica.testo}}</p>
+</ng-container>
+<button (click)="goToHomepage()">Torna alla homepage</button>

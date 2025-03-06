@@ -1,0 +1,31 @@
+<h2>MODIFICA UTENTE</h2>
+<label>Username</label><br>
+<input type="text" [(ngModel)]="username"><br>
+<label>Nome</label><br>
+<input type="text" [(ngModel)]="nome"><br><br>
+<label>Email</label><br>
+<input type="email" [(ngModel)]="email"><br>
+<label>Telefono</label><br>
+<input type="text" [(ngModel)]="telefono"><br><br>
+<label>Comunità</label><br>
+<input type="text" [(ngModel)]="comunita"><br><br>
+<label>Vecchia password</label><br>
+<input type="password" [(ngModel)]="vecchiaPassword"><br>
+<label>Nuova password</label><br>
+<input type="password" [(ngModel)]="nuovaPassword"><br><br>
+<label>Vuoi abilitare le notifiche?</label>
+<input type="radio" name="isNotifica" [(ngModel)]="isNotifica" [value]="true">Sì
+<input type="radio" name="isNotifica" [(ngModel)]="isNotifica" [value]="false">No
+<br><br>
+<label>Generi preferiti: </label><br>
+<ng-container *ngFor="let genere of generi"><br>
+  {{genere.nome}}
+  <button (click)="toggleGenere(genere.nome)">
+  {{!generiSelezionati.includes(genere.nome) ? 'Aggiungi' : 'Rimuovi'}}
+  </button><br>
+</ng-container>
+<br><br>
+<button (click)="modifica()">Modifica</button><br><br>
+<button (click)="goToHomepage()">Torna alla homepage</button>
+
+

@@ -1,0 +1,23 @@
+<h2>LE MIE RICHIESTE</h2>
+<label>Cerca per titolo: </label>
+<input type="text" [(ngModel)]="ricercaTitolo">
+<br><br>
+<label>Cerca per autore: </label>
+<input type="text" [(ngModel)]="ricercaAutore">
+<br><br>
+<button (click)="resetFiltri()">Reset filtri</button>
+<br>
+<ng-container *ngFor="let richiesta of richieste">
+  <ng-container *ngIf="
+      (ricercaTitolo === '' || richiesta.titoloLibro.toLowerCase().includes(ricercaTitolo.toLowerCase().trim())) &&
+      (ricercaAutore === '' || richiesta.autoreLibro.toLowerCase().includes(ricercaAutore.toLowerCase().trim()))">
+    <p><strong>{{richiesta.titoloLibro}}</strong> - {{richiesta.autoreLibro}}
+      <ng-container *ngIf="richiesta.titoloLibroRichiedente != ''">
+        (in cambio di {{richiesta.titoloLibroRichiedente}} - {{richiesta.autoreLibroRichiedente}})
+      </ng-container>
+      <button (click)="accetta(richiesta.scambioId)">Accetta</button><button style="margin-left: 10px" (click)="rifiuta(richiesta.scambioId)">Rifiuta</button>
+    </p>
+  </ng-container>
+</ng-container>
+<br><br>
+<button (click)="goToHomepage()">Torna alla homepage</button>
